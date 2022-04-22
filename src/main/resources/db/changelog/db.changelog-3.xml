@@ -7,10 +7,10 @@
       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
       http://www.liquibase.org/xml/ns/pro
       http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
-    <changeSet  author="mbilichenko"  id="1">
+    <changeSet author="mbilichenko" id="1">
         <createTable tableName="gpu">
-            <column  name="id"  type="BIGINT">
-                <constraints  nullable="false"  primaryKey="true"  unique="true"/>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
             <column name="vendor_id" type="BIGINT">
                 <constraints foreignKeyName="fk_vendor" referencedTableName="vendor" referencedColumnNames="id"/>
