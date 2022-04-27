@@ -1,13 +1,12 @@
 package com.bilichenko.gpucashdemo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity(name = "gpu")
+@Entity
+@Table(name = "gpu")
 public class Gpu {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 }
