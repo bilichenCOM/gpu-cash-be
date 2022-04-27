@@ -17,4 +17,8 @@ public class OrderService {
     public List<Order> getAll() {
         return orderRepository.findAll();
     }
+
+    public Order add(Order order) {
+        return orderRepository.save(order);
+    }
 }

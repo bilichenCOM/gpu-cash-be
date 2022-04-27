@@ -2,10 +2,7 @@ package com.bilichenko.gpucashdemo.controller;
 
 import com.bilichenko.gpucashdemo.model.Order;
 import com.bilichenko.gpucashdemo.service.OrderService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,8 +19,12 @@ public class OrderController {
 
     @GetMapping
     public List<Order> getAll() {
-        List<Order> all = orderService.getAll();
-        return all;
+        return orderService.getAll();
+    }
+
+    @PostMapping
+    public Order add(@RequestBody Order order) {
+        return orderService.add(order);
     }
 
 }
