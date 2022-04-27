@@ -1,5 +1,7 @@
 package com.bilichenko.gpucashdemo.model;
 
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,6 +20,7 @@ public class Order {
     private Gpu gpu;
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonSerialize
     private Customer customer;
     @Column(name = "description")
     private String description;

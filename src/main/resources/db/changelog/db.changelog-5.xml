@@ -28,6 +28,7 @@
             <column name="customer_id" value="100"/>
             <column name="gpu_id" value="100"/>
             <column name="description" value="get rid of me!!!"/>
+            <column name="status" value="NEW"/>
             <column name="from_date" value="2022-04-28"/>
             <column name="to_date" value="2022-04-30"/>
         </insert>
