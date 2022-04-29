@@ -1,6 +1,7 @@
 package com.bilichenko.gpucashdemo.controller;
 
 import com.bilichenko.gpucashdemo.model.Order;
+import com.bilichenko.gpucashdemo.model.Status;
 import com.bilichenko.gpucashdemo.service.OrderService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +19,8 @@ public class OrderController {
     }
 
     @GetMapping
-    public List<Order> getAll() {
-        return orderService.getAll();
+    public List<Order> get(@RequestParam(name = "status", required = false) Status status) {
+        return orderService.getByOptionalStatus(status);
     }
 
     @PostMapping

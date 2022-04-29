@@ -1,6 +1,7 @@
 package com.bilichenko.gpucashdemo.service;
 
 import com.bilichenko.gpucashdemo.model.Order;
+import com.bilichenko.gpucashdemo.model.Status;
 import com.bilichenko.gpucashdemo.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,16 @@ public class OrderService {
 
     public Order add(Order order) {
         return orderRepository.save(order);
+    }
+
+    public List<Order> getByOptionalStatus(Status status) {
+        if (status == null) {
+            return getAll();
+        }
+        return getByStatus(status);
+    }
+
+    private List<Order> getByStatus(Status status) {
+        return orderRepository.findByStatus(status);
     }
 }

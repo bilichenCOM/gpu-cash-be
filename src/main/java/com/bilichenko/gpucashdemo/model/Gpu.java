@@ -10,9 +10,9 @@ import javax.persistence.*;
 public class Gpu {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "vendor_id")
     private Vendor vendor;
     @Column(name = "model")
