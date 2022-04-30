@@ -33,4 +33,8 @@ public class OrderService {
     private List<Order> getByStatus(Status status) {
         return orderRepository.findByStatus(status);
     }
+
+    public Order update(Order order) {
+        return orderRepository.save(order);
+    }
 }

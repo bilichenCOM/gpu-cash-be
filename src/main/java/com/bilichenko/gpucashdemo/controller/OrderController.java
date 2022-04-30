@@ -28,4 +28,8 @@ public class OrderController {
         return orderService.add(order);
     }
 
+    @PutMapping
+    public Order update(@RequestBody Order order) {
+        return orderService.update(order);
+    }
 }
