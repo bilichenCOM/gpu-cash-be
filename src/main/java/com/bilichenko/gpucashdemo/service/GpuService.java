@@ -30,4 +30,8 @@ public class GpuService {
     public Gpu update(Gpu gpu) {
         return gpuRepository.save(gpu);
     }
+
+    public void delete(Gpu gpu) {
+        gpuRepository.delete(gpu);
+    }
 }

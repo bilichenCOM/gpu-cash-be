@@ -15,4 +15,7 @@ public class Vendor {
     private Long id;
     @Column(name = "name")
     private String name;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "vendor_type")
+    private VendorType type;
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="mbilichenko" id="1">
+        <addColumn tableName="vendor">
+            <column name="vendor_type" type="VARCHAR(20)"/>
+        </addColumn>
+        <addNotNullConstraint tableName="gpu" columnName="chip_vendor_id"/>
+        <addNotNullConstraint tableName="gpu" columnName="memory_vendor_id"/>
+        <addNotNullConstraint tableName="gpu" columnName="board_vendor_id"/>
+    </changeSet>
+</databaseChangeLog>

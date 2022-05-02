@@ -39,4 +39,9 @@ public class GpuController {
     public Gpu update(@RequestBody Gpu gpu) {
         return gpuService.update(gpu);
     }
+
+    @DeleteMapping
+    public void delete(@RequestBody Gpu gpu) {
+        gpuService.delete(gpu);
+    }
 }

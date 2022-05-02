@@ -5,6 +5,7 @@ import com.bilichenko.gpucashdemo.repository.VendorRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VendorService {
@@ -21,5 +22,17 @@ public class VendorService {
 
     public Vendor add(Vendor vendor) {
         return vendorRepository.save(vendor);
+    }
+
+    public Optional<Vendor> getById(Long id) {
+        return vendorRepository.findById(id);
+    }
+
+    public Vendor update(Vendor vendor) {
+        return vendorRepository.save(vendor);
+    }
+
+    public void delete(Vendor vendor) {
+        vendorRepository.delete(vendor);
     }
 }
