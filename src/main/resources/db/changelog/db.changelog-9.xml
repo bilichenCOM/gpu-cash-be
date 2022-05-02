@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="mbilichenko" id="1">
+        <createTable tableName="inventory">
+            <column name="id" type="bigint" autoIncrement="true" startWith="100">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="gpu_id" type="bigint">
+                <constraints foreignKeyName="fk_gpu_inventory" referencedTableName="gpu" referencedColumnNames="id" nullable="false"/>
+            </column>
+            <column name="quantity" type="int"/>
+            <column name="condition" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
