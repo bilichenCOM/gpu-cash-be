@@ -5,6 +5,7 @@ import com.bilichenko.gpucashdemo.repository.GpuRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GpuService {
@@ -19,6 +20,14 @@ public class GpuService {
     }
 
     public Gpu add(Gpu gpu) {
+        return gpuRepository.save(gpu);
+    }
+
+    public Optional<Gpu> getById(Long id) {
+        return gpuRepository.findById(id);
+    }
+
+    public Gpu update(Gpu gpu) {
         return gpuRepository.save(gpu);
     }
 }
