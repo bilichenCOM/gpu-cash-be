@@ -26,4 +26,14 @@ public class InventoryController {
     public List<Inventory> getAll() {
         return inventoryService.getAll();
     }
+
+    @PutMapping
+    public Inventory update(@RequestBody Inventory inventory) {
+        return inventoryService.update(inventory);
+    }
+
+    @DeleteMapping
+    public void delete(@RequestBody Inventory inventory) {
+        inventoryService.delete(inventory);
+    }
 }

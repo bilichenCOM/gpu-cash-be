@@ -21,4 +21,12 @@ public class InventoryService {
     public List<Inventory> getAll() {
         return inventoryRepository.findAll();
     }
+
+    public Inventory update(Inventory inventory) {
+        return inventoryRepository.save(inventory);
+    }
+
+    public void delete(Inventory inventory) {
+        inventoryRepository.delete(inventory);
+    }
 }
