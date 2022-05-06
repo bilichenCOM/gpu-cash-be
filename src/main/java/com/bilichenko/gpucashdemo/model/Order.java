@@ -30,4 +30,6 @@ public class Order {
     private Date to;
     @Column(name = "finished_at_date")
     private Date finishedAt;
+    @Column(name = "is_guarantee_case")
+    private Boolean isGuaranteeCase;
 }
