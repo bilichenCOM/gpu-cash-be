@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="mbilichenko" id="1">
+        <createTable tableName="vram">
+            <column name="id" type="bigint" autoIncrement="true" startWith="100">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="vendor_id" type="bigint">
+                <constraints foreignKeyName="fk_vram_vendor" referencedTableName="vendor" referencedColumnNames="id" nullable="false"/>
+            </column>
+            <column name="chip_model" type="varchar(50)"/>
+            <column name="size" type="int"/>
+        </createTable>
+        <addColumn tableName="gpu">
+            <column name="vram_id" type="bigint">
+                <constraints foreignKeyName="fk_gpu_vram" referencedTableName="vram" referencedColumnNames="id"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

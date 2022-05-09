@@ -21,8 +21,6 @@ public class Gpu {
     @Column(name = "model")
     private String model;
     @ManyToOne(cascade = {CascadeType.MERGE})
-    @JoinColumn(name = "memory_vendor_id")
-    private Vendor memoryVendor;
-    @Column(name = "ram_size")
-    private Integer ramSize;
+    @JoinColumn(name = "vram_id")
+    private Vram vram;
 }
