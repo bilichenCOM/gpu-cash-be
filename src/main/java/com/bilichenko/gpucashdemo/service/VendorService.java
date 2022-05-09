@@ -1,6 +1,7 @@
 package com.bilichenko.gpucashdemo.service;
 
 import com.bilichenko.gpucashdemo.model.Vendor;
+import com.bilichenko.gpucashdemo.model.VendorType;
 import com.bilichenko.gpucashdemo.repository.VendorRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,10 @@ public class VendorService {
         this.vendorRepository = vendorRepository;
     }
 
-    public List<Vendor> getAll() {
+    public List<Vendor> getAllByOptionalType(VendorType type) {
+        if (type != null) {
+            return vendorRepository.findAllByType(type);
+        }
         return vendorRepository.findAll();
     }
 
