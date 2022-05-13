@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/vrams")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin
 public class VramController {
 
     private final VramService vramService;

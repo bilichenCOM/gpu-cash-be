@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/gpus")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin
 public class GpuController {
 
     private final GpuService gpuService;
