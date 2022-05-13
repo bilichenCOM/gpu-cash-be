@@ -16,7 +16,7 @@ public class Order {
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "gpu_id")
     private Gpu gpu;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "customer_id")
     private Customer customer;
     @Column(name = "description")
