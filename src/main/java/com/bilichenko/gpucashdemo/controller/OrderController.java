@@ -21,8 +21,8 @@ public class OrderController {
     }
 
     @GetMapping
-    public List<Order> get(@RequestParam(name = "status", required = false) Status status) {
-        return orderService.getByOptionalStatus(status);
+    public List<Order> get(@RequestParam(name = "statuses", required = false) List<Status> statuses) {
+        return orderService.getByStatuses(statuses);
     }
 
     @PostMapping

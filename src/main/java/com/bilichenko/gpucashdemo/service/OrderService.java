@@ -24,15 +24,8 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
-    public List<Order> getByOptionalStatus(Status status) {
-        if (status == null) {
-            return getAll();
-        }
-        return getByStatus(status);
-    }
-
-    private List<Order> getByStatus(Status status) {
-        return orderRepository.findByStatus(status);
+    public List<Order> getByStatuses(List<Status> statuses) {
+        return orderRepository.findAllByStatusIn(statuses);
     }
 
     public Order update(Order order) {
