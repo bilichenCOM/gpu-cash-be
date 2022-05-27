@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="mbilichenko" id="1">
+        <createTable tableName="pwm_controller">
+            <column name="id" type="bigint" autoIncrement="true" startWith="100">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="name" type="varchar(100)" />
+            <column name="number_of_phases" type="int" />
+        </createTable>
+        <createTable tableName="mosfet">
+            <column name="id" type="bigint" autoIncrement="true" startWith="100">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="name" type="varchar(100)" />
+        </createTable>
+        <createTable tableName="mosfet_driver">
+            <column name="id" type="bigint" autoIncrement="true" startWith="100">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="name" type="varchar(100)" />
+        </createTable>
+        <createTable tableName="n_mosfet">
+            <column name="id" type="bigint" autoIncrement="true" startWith="100">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="name" type="varchar(100)" />
+        </createTable>
+        <createTable tableName="dr_mos">
+            <column name="id" type="bigint" autoIncrement="true" startWith="100">
+                <constraints primaryKey="true" />
+            </column>
+        </createTable>
+        <createTable tableName="vrm">
+            <column name="id" type="bigint" autoIncrement="true" startWith="100">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="vrm_type" type="varchar(20)" />
+            <column name="pwm_controller_id" type="bigint">
+                <constraints foreignKeyName="pwm_controller_fk" referencedTableName="pwm_controller" referencedColumnNames="id" />
+            </column>
+            <column name="mosfet_id" type="bigint">
+                <constraints foreignKeyName="mosfet_fk" referencedTableName="mosfet" referencedColumnNames="id" />
+            </column>
+            <column name="mosfet_driver_id" type="bigint">
+                <constraints foreignKeyName="mosfet_driver_fk" referencedTableName="mosfet_driver" referencedColumnNames="id" />
+            </column>
+            <column name="n_mosfet_id" type="bigint">
+                <constraints foreignKeyName="n_mosfet_id" referencedTableName="n_mosfet" referencedColumnNames="id" />
+            </column>
+            <column name="dr_mos_id" type="bigint">
+                <constraints foreignKeyName="dr_mos_fk" referencedTableName="dr_mos" referencedColumnNames="id" />
+            </column>
+        </createTable>
+        <addColumn tableName="gpu">
+            <column name="core_vrm_id" type="bigint">
+                <constraints foreignKeyName="core_vrm_fk" referencedTableName="vrm" referencedColumnNames="id" />
+            </column>
+            <column name="memory_vrm_id" type="bigint">
+                <constraints foreignKeyName="memory_vrm_fk" referencedTableName="vrm" referencedColumnNames="id" />
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

@@ -15,8 +15,8 @@ public class Vrm {
     @JoinColumn(name = "pwm_controller_id")
     private PwmController pwmController;
     @Enumerated(EnumType.STRING)
-    @Column(name = "type")
-    private VrmType type;
+    @Column(name = "vrm_type")
+    private VrmType vrmType;
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "mosfet_id")
     private Mosfet mosfet;
