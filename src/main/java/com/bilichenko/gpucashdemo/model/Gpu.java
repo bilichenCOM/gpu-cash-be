@@ -23,4 +23,10 @@ public class Gpu {
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "vram_id")
     private Vram vram;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "core_vrm_id")
+    private Vrm coreVrm;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "memory_vrm_id")
+    private Vrm memoryVrm;
 }
