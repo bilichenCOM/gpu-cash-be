@@ -34,6 +34,7 @@
             <column name="id" type="bigint" autoIncrement="true" startWith="100">
                 <constraints primaryKey="true" />
             </column>
+            <column name="name" type="varchar(100)" />
         </createTable>
         <createTable tableName="vrm">
             <column name="id" type="bigint" autoIncrement="true" startWith="100">
